@@ -1,0 +1,43 @@
+{
+    "name": "larah5p/larah5p",
+    "description": "Advanced H5P integration for Laravel 10+",
+    "type": "library",
+    "authors": [{
+        "name": "Musab Alzoubi",
+        "email": "musab.m.alzoubii@gmail.com"
+    }],
+    "license": "MIT",
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "autoload": {
+        "psr-4": {
+            "LaraH5P\\": "src/"
+        }
+    },
+    "require": {
+        "php": ">=8.2",
+        "laravel/framework": "^10.0 || ^11.0",
+        "h5p/h5p-core": "^1.25.0",
+        "h5p/h5p-editor": "^1.25.0",
+        "guzzlehttp/guzzle": "^7.5",
+        "laravelcollective/html": "^6.4"
+    },
+    "require-dev": {
+        "mockery/mockery": "1.5.*",
+        "phpunit/phpunit": "^10.0"
+    },
+    "suggest": {
+        "filament/filament": "Required if you need an admin panel",
+        "spatie/laravel-permission": "Required if you need role-based permissions"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "LaraH5P\\Providers\\LaraH5PServiceProvider"
+            ],
+            "aliases": {
+                "LaraH5P": "LaraH5P\\Facades\\LaraH5P"
+            }
+        }
+    }
+}

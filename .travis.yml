@@ -1,0 +1,27 @@
+language: php
+
+php:
+  - 8.2
+  - 8.3
+
+cache:
+  directories:
+    - $HOME/.composer/cache
+
+services:
+  - mysql
+
+before_install:
+  - sudo apt-get update
+  - mysql -e 'CREATE DATABASE IF NOT EXISTS test_database;'
+
+install:
+  - travis_retry composer install --no-interaction --prefer-dist
+
+before_script:
+  - cp .env.example .env
+  - php artisan key:generate
+  - php artisan migrate --force
+
+script:
+  - vendor/bin/phpunit --coverage-text --colors=never
